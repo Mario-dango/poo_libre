@@ -34,45 +34,44 @@ int main(int argc, char* argv[])
       while ((tecla=getchar()) != 'q')
       {
         printf("Se ha presionado: %c\n", tecla);
-        if (tecla == '8'){
-          if (cliente.execute("adelante", vacio, resultado)){
+        if (tecla == 'y'){
+          if (cliente.execute("avanzar", vacio, resultado)){
             std::cout << resultado << "\n";
           }else{
             std::cout << "Error en la llamada avanzar!" << "\n";
           }
-        }else if (tecla == '2'){
-          if (cliente.execute("retrocede", vacio, resultado)){
+        }else if (tecla == 'h'){
+          if (cliente.execute("retroceder", vacio, resultado)){
             std::cout << resultado << "\n";
           }else{
             std::cout << "Error en la llamada Retroceder!" << "\n";
           }
-        }else if (tecla == '4'){
+        }else if (tecla == 'g'){
           if (cliente.execute("izquierda", vacio, resultado)){
             std::cout << resultado << "\n";
           }else{
             std::cout << "Error en la llamada Izquierda!" << "\n";
           }
-        }else if (tecla == '6'){
+        }else if (tecla == 'j'){
           if (cliente.execute("derecha", vacio, resultado)){
             std::cout << resultado << "\n";
           }else{
             std::cout << "Error en la llamada Derecha!" << "\n";
           }
-        }else if (tecla == '5'){
-          if (cliente.execute("detener", vacio, resultado)){
+        }else if (tecla == 'u'){
+          if (cliente.execute("detenerse", vacio, resultado)){
             std::cout << resultado << "\n";
           }else{
             std::cout << "Error en la llamada Detener!" << "\n";
           }
-        }else if (tecla == 'q'){
+        }else if (tecla == 't'){
           std::cout << "se procede a salir de la conexión." << "\n\n";
           break;
-        }    
-        tecla = getchar();   
+        }       
       }
+      system ("/bin/stty cooked");
+      return 0;
     }
-    system ("/bin/stty cooked");
-    return 0;
   }catch(XmlRpc::XmlRpcException e){
       cout << "Error numero " << e.getCode() << ", " << e.getMessage() << endl; 
   }  
