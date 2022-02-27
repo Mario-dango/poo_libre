@@ -126,6 +126,3 @@ class Ui_MainWindow(object):
         self.btn_izquierda.setText(_translate("MainWindow", "Izquierda"))
         self.on_off_motor.setText(_translate("MainWindow", "Activar / Desactivar Motores"))
         self.label_2.setText(_translate("MainWindow", "TextLabel"))
-anslate("MainWindow", "Derecha"))
-        self.btn_izquierda.setText(_translate("MainWindow", "Izquierda"))
-        self.label_2.setText(_translate("MainWindow", "TextLabel"))
