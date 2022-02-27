@@ -12,6 +12,7 @@
 import serial
 import keyboard as teclado
 
+
 try:
     ser = serial.Serial('/dev/rfcomm0',9600)
     

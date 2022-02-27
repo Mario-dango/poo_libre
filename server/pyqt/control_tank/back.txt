@@ -1,0 +1,147 @@
+
+        
+        self.estado_mt = False
+        self.estado_bt = False
+        self.estado_sv = False
+
+        self.btn_avanzar.clicked.connect(self.avanzar)
+        self.btn_retroceder.clicked.connect(self.retrocede)
+        self.btn_izquierda.clicked.connect(self.izquierda)
+        self.btn_derecha.clicked.connect(self.derecha)
+        self.btn_detener.clicked.connect(self.detener)
+
+        self.on_off_bt.setCheckable(True)
+        self.on_off_bt.toggle()
+        self.on_off_bt.clicked.connect(self.conn_bt)
+        self.on_off_motor.clicked.connect(self.en_motors)
+        self.on_server.clicked.connect(self.on_sv)
+        self.off_server.clicked.connect(self.off_sv)
+
+    #Evento para cuando la ventana se muestra60
+    def showEvent(self, event):
+        self.autor.setText("Autor: Mario Papetti Funes \nInstagram: Mario.dango")
+        self.label_2.setText("Registro de acciones realizadas:")
+        self.t_botones.setText("Botones para controlar el movimiento del robot.")
+    """
+         #Evento para cuando la ventana se cierra
+    def closeEvent(self, event):
+        resultado = QMessageBox.question(self, "Salir ...", "¿Seguro que quieres salir de la aplicación?", QMessageBox.Yes | QMessageBox.No)
+        if resultado == QMessageBox.Yes: event.accept()
+        else: event.ignore()
+    """
+
+        #Eventos para conexión/desconexión activación y desactivación de parametros
+    def conn_bt(self, estado_bt):
+        #ser = serial.Serial('/dev/rfcomm0',9600)
+        bt_device = self.bt_list.currentText()
+        if estado_bt is False:
+            estado_bt = True
+            #bt = serial.Serial('/dev/rfcomm0',9600)
+            self.r_log.addItem("Se conectará con el dispositivo: " + bt_device)
+            self.on_off_bt.setText("Bluetooth Conectado")
+            print("se conectará con el dispositivo:",bt_device)
+        else:
+            estado_bt = False
+            self.r_log.addItem("Se desconectó del dispositivo: " + bt_device)
+            self.on_off_bt.setText("Bluetooth Desconectado")
+            print("Se ha desconectado del dispositivo bluetooth",bt_device)
+
+        ###Agregar un nuevo item
+        #self.bt_list.addItem("C++")        
+        ###Eliminar un item
+        #self.bt_list.removeItem(0)
+
+    def en_motors(self, estado_mt, ):
+        if estado_mt is False:
+            estado_mt = True
+            ####self.r_log.addItem("Motores activados.")
+            try:            
+                self.robot.on_motor()
+
+            except:
+                self.r_log.addItem("Problema en: en_motors")
+                ###self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+                print("Error al intentar enviar comando.")
+                #print("Revisar estado de la comunicación Bluetooth.")
+                
+        else:
+            estado_mt = False
+            ###self.r_log.addItem("Motores desactivados.")
+            try:            
+                self.robot.on_motor()
+
+            except:
+                self.r_log.addItem("Problema en: en_motors")
+                self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+                print("Error al intentar enviar comando.")
+
+
+    def on_sv(self):
+        self.r_log.addItem("Conectado al servidor")
+        print("Conectado al servidor")
+        
+    def off_sv(self):
+        self.r_log.addItem("Desconectado del Servidor")
+        print("Desconectado del Servidor")
+
+        #Eventos de botones para control de los movimientos
+    def avanzar(self):
+        self.r_log.addItem("Se presionó el botón para avanzar.")
+        print("Se presionó el botón para avanzar.")
+        #avanzar
+        try:            
+            return self.robot.avanzar()
+
+        except:
+            self.r_log.addItem("Error al intentar enviar comando Avanzar.")
+            self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+            print("Error al intentar enviar comando.")
+            print("Revisar estado de la comunicación Bluetooth.")
+    
+    def retrocede(self):
+        self.r_log.addItem("Se presionó el botón para retroceder.")
+        print("Se presionó el botón para retroceder.")
+        try:            
+            return self.robot.retroceder()
+
+        except:
+            self.r_log.addItem("Error al intentar enviar comando retroceder.")
+            self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+            print("Error al intentar enviar comando.")
+            print("Revisar estado de la comunicación Bluetooth.")
+        
+    def izquierda(self):
+        self.r_log.addItem("Se presionó el botón para izquierda.")
+        print("Se presionó el botón para girar a la izquierda.")
+        try:            
+            return self.robot.izquierda()
+
+        except:
+            self.r_log.addItem("Error al intentar enviar comando izquierda.")
+            self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+            print("Error al intentar enviar comando.")
+            print("Revisar estado de la comunicación Bluetooth.")
+        
+    def derecha(self):
+        self.r_log.addItem("Se presionó el botón para derecha.")
+        print("Se presionó el botón para girar a la derecha.")
+        try:            
+            return self.robot.derecha()
+
+        except:
+            self.r_log.addItem("Error al intentar enviar comando derecha.")
+            self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+            print("Error al intentar enviar comando.")
+            print("Revisar estado de la comunicación Bluetooth.")
+        
+    def detener(self, port_bt):
+        self.r_log.addItem("Se presionó el botón para detener.")
+        print("Se presionó el botón para detener.")
+        try:            
+            return self.robot.detener()
+
+        except:
+            self.r_log.addItem("Error al intentar enviar comando detener.")
+            self.r_log.addItem("Revisar estado de la comunicación Bluetooth.")
+            print("Error al intentar enviar comando.")
+            print("Revisar estado de la comunicación Bluetooth.")

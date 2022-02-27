@@ -60,7 +60,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>../../../../../../Descargas/Telegram Desktop/photo_2021-11-19_03-34-04.jpg</pixmap>
+          <pixmap>../../../../Descargas/Telegram Desktop/photo_2021-11-19_03-34-04.jpg</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
