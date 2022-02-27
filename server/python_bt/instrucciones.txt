@@ -1,0 +1,15 @@
+para instalar la libreria de Bluez (Bluetooth) se requiere lo siguiente:
+
+1)  sudo apt-get install python3-dev
+2)  sudo apt-get install blutooth
+3)  sudo apt-get install libbluetooth-dev
+Luego de ello probar instalando directamente el complemento
+
+    sudo pip install pybluez
+
+
+para más detalles se consultó las siguientes fuentes:
+https://github.com/themagpimag/magpi-issue61/issues/1
+https://github.com/pybluez/pybluez/blob/master/docs/install.rst
+
+https://pybluez.readthedocs.io/en/latest/install.html
