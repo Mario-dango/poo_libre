@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/bawy/Plantillas/poo/proyecto/server/control_bt.ui'
+# Form implementation generated from reading ui file '/home/bawy/Plantillas/poo/proyecto/server/pyqt/control_tank/control_bt.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.Imagen.setGeometry(QtCore.QRect(10, 20, 341, 191))
         self.Imagen.setStyleSheet("border: 5px solid black;")
         self.Imagen.setText("")
-        self.Imagen.setPixmap(QtGui.QPixmap("/home/bawy/Plantillas/poo/proyecto/server/../../../../Descargas/Telegram Desktop/photo_2021-11-19_03-34-04.jpg"))
+        self.Imagen.setPixmap(QtGui.QPixmap("/home/bawy/Plantillas/poo/proyecto/server/pyqt/control_tank/../../../../../../Descargas/Telegram Desktop/photo_2021-11-19_03-34-04.jpg"))
         self.Imagen.setScaledContents(True)
         self.Imagen.setObjectName("Imagen")
         self.layoutWidget = QtWidgets.QWidget(self.frame_arriba)
