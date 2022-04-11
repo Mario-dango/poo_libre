@@ -133,7 +133,7 @@ class Ventana(QMainWindow):
             self.on_off_bt.setText("Bluetooth Desconectado")
             self.r_log.addItem(" ")
             self.r_log.addItem("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
-            self.r_log.scrollToBottom()
+            self.r_log.scrollToBottom() 
             return "Se finalizó la conexión Bluetooth."
 
     #Evento para habilitar o deshabilitar la función de conexión XmlRpc
@@ -197,11 +197,10 @@ class Ventana(QMainWindow):
         ###################################################
         #Eventos de botones para control de los movimientos
     def adelante(self):
-        self.r_log.addItem("Se presionó el botón para avanzar.")
+        self.r_log.addItem("Se presionó el botón para AVANZAR.                      ****      ^^      ****")
         print("Se presionó el botón para avanzar.")
         try:            
             self.tank.avanzar(self, self.port_bt)
-            self.r_log.addItem(" ")
             self.r_log.scrollToBottom()
             return "El tank se mueve hacia Adelante."
 
@@ -215,10 +214,11 @@ class Ventana(QMainWindow):
             return "Error al avanzar."
     
     def retrocede(self):
-        self.r_log.addItem("Se presionó el botón para retroceder.")
+        self.r_log.addItem("Se presionó el botón para RETROCEDER.              ****         vv         ****")
         print("Se presionó el botón para retroceder.")
         try:            
             self.tank.retroceder(self, self.port_bt)
+            self.r_log.scrollToBottom()
             return "El tank se mueve hacia Atras."
 
         except:
@@ -231,10 +231,11 @@ class Ventana(QMainWindow):
             return "Error al retroceder."
         
     def izquierda(self):
-        self.r_log.addItem("Se presionó el botón para izquierda.")
+        self.r_log.addItem("Se presionó el botón para IZQUIERDA.                ****         <-        ****")
         print("Se presionó el botón para girar a la izquierda.")
         try:            
             self.tank.izquierda(self, self.port_bt)
+            self.r_log.scrollToBottom()
             return "El tank comienza a girar hacia la izquierda."
 
         except:
@@ -247,10 +248,11 @@ class Ventana(QMainWindow):
             return "Error al girar a la izquierda."
         
     def derecha(self):
-        self.r_log.addItem("Se presionó el botón para derecha.")
+        self.r_log.addItem("Se presionó el botón para DERECHA.                 ****       ->      ****")
         print("Se presionó el botón para girar a la derecha.")
         try:            
             self.tank.derecha(self, self.port_bt)
+            self.r_log.scrollToBottom()
             return "El tank comienza a girar hacia la derecha."
 
         except:
@@ -263,11 +265,12 @@ class Ventana(QMainWindow):
             return "Error al girar a la derecha."
         
     def detener(self):
-        self.r_log.addItem("Se presionó el botón para detener.")
+        self.r_log.addItem("Se presionó el botón para DETENER.                      ****   [STOPED]   ****")
         print("Se presionó el botón para detener.")
         
         try:            
             self.tank.detener(self, self.port_bt)
+            self.r_log.scrollToBottom()
             return "El tank se ha detenido."
 
         except:

@@ -1,6 +1,9 @@
 #!/usr/bin/python 
 # -*- coding: utf-8 -*-
 
+## Recordar ejecutar:
+##          sudo python3 servidor.py
+
 import sys
 from PyQt5.QtWidgets import *
 from control_ui import Ventana
