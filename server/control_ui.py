@@ -7,7 +7,7 @@ from xmlrpc_server import XmlRpc_servidor
 from robot_bt import robot
 import serial
 
-
+##oauht0
 #Clase heredada de QMainWindow (Constructor de ventanas)
 class Ventana(QMainWindow):
  #Método constructor de la clase
